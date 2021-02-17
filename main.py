@@ -11,9 +11,4 @@ async def ping(ctx):
 async def hi(ctx):
     await ctx.send('hi')
 
-@bot.command()
-async def goodbuy(ctx):
-    await ctx.send('goodbuy')
-
-
 bot.run('') #тут тупо введи токен бота
