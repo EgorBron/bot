@@ -1,10 +1,17 @@
 import discord
 from discord.ext import commands
+from motor.motor_asyncio import AsyncIOMotorClient
 
-bot = commands.Bot(command_prefix='!')
+tamada = commands.Bot(command_prefix='!', intents = discord.Intents.all())
+cluster = AsyncIOMotorClient('сюда ссылку на Атлас')
+party = cluster.ecodb.trivivaparty
 
-@bot.command()
+@tamada.event 
+async def on_ready():
+    print('Подъём, просыпайтесь!') 
+
+@tamada.command()
 async def ping(ctx):
     await ctx.send('pong')
 
-bot.run('') #тут тупо введи токен бота
+tamada.run('') #тут тупо введи токен бота
